@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar class="header-un" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Doble titulación</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="un-content" padding>
+  <button ion-button clear icon-start small duration="9000" [tooltip]="toolTipText" positionV="bottom" arrow>
+    <ion-icon ios="ios-help-circle" md="md-help-circle"></ion-icon>
+     Análisis de Afinidades
+  </button>
+  <ion-card>
+    <ion-item>
+      <ion-label>Seleccione la sede</ion-label>
+      <ion-select [(ngModel)]="idsede" name="idsede"  (ionChange)='listarFacultades()' interface="action-sheet">
+        <ion-option *ngFor="let sede of sedes" [value]="sede.cod_sede" [selected]="idsede == sede.cod_sede">{{ sede.sede }}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+
+  <ion-card *ngIf="facultades.length>0">
+    <ion-item>
+      <ion-label>Seleccione la facultad</ion-label>
+      <ion-select [(ngModel)]="idfacultad" name="idfacultad" (ionChange)='listarProgramas()' interface="popover">
+        <ion-option *ngFor="let facultad of facultades" [value]="facultad.cod_facultad" >{{ facultad.facultad }}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+
+  <ion-card *ngIf="programas.length>0">
+    <ion-item>
+      <ion-label>Seleccione el programa</ion-label>
+      <ion-select [(ngModel)]="idprograma" name="idprograma" (ionChange)='listarAfinidades()' interface="popover">
+        <ion-option *ngFor="let programa of programas" [value]="programa.cod_uniprograma">{{ programa.programa }}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+
+  <ion-card *ngIf="afinidades.length>0">
+    <ion-card-header class="card-equ-header">
+          Afinidades
+    </ion-card-header>
+    <ion-card-content>
+        <ion-grid text-center>
+            <ion-row text-center>
+                <ion-col>Creditos</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col width-25>Programa</ion-col>
+                <ion-col width-25>Exigidos</ion-col>
+                <ion-col width-25>Comunes</ion-col>
+                <ion-col width-25>Excedentes </ion-col>
+            </ion-row>
+            <ion-row *ngFor="let afinidad of afinidades">
+                <ion-col width-25>{{ afinidad.programa_d }}</ion-col>
+                <ion-col width-25>{{ afinidad.creditos_d }}</ion-col>
+                <ion-col width-25>{{ afinidad.creditos_comunes }}</ion-col>
+                <ion-col width-25>{{ afinidad.creditos_comunes - afinidad.creditos_d }}</ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

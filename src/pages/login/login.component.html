@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar class="header-un" >
+    <ion-title  >Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="un-content" padding>
+  <ion-card>
+    <img src="assets/img/escudoUnalCent.png" class="logo-unal"/>
+    <ion-card-header>
+        <ion-card-title>
+          Inicio de sesión
+        </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+          <ion-label floating>Usuario institucional</ion-label>
+          <ion-input type="text" [(ngModel)]="user_login" name="user_login"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Contraseña:</ion-label>
+          <ion-input type="password" [(ngModel)]="user_password" name="user_password" ></ion-input>
+       </ion-item>
+       <button (click)="login(user_login, user_password)" color="verdeun" ion-button full>Ingresar</button>
+       <br />
+       <div>
+
+              <a (click)="politicas()" class="text-success politicas-un" >Politicas de privacidad</a>
+       </div>
+    </ion-card-content>
+
+</ion-card>
+</ion-content>

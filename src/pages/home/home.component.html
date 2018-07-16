@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar class="header-un" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Inicio</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      Seleccione una opción
+    </ion-card-header>
+
+    <ion-list class="menu-un">
+      <button ion-item (click)="pagina(1)" >
+        <ion-icon ios="ios-git-network" md="md-git-network" item-start></ion-icon>
+        Rutas Curriculares
+      </button>
+
+      <button ion-item (click)="pagina(2)">
+        <ion-icon ios="ios-paper" md="md-paper" item-start></ion-icon>
+        Doble Titulación
+      </button>
+
+      <button ion-item (click)="pagina(3)">
+        <ion-icon ios="ios-swap" md="md-swap" item-start></ion-icon>
+        Equivalencias
+      </button>
+      <button ion-item (click)="escuela()">
+          <ion-icon ios="ios-desktop-outline" md="md-desktop" item-start></ion-icon>
+          Escuela Virtual
+      </button>
+      <button ion-item (click)="canalYoutube()">
+          <ion-icon ios="logo-youtube" md="logo-youtube" item-start></ion-icon>
+          Cursos de apoyo académico
+      </button>
+
+
+    </ion-list>
+  </ion-card>
+</ion-content>

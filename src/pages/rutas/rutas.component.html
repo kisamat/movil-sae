@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar class="header-un" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Rutas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<button ion-button clear icon-start small duration="9000" [tooltip]="toolTipText" positionV="bottom" arrow>
+  <ion-icon ios="ios-help-circle" md="md-help-circle"></ion-icon>
+  Rutas curriculares
+
+</button>
+<ion-card>
+  <ion-item>
+    <ion-label>Seleccione la sede</ion-label>
+    <ion-select [(ngModel)]="idsede" name="idsede"  (ionChange)='listarFacultades()' interface="action-sheet">
+      <ion-option *ngFor="let sede of sedes" [value]="sede.cod_sede" [selected]="idsede == sede.cod_sede">{{ sede.sede }}</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-card>
+
+<ion-card *ngIf="facultades.length>0">
+  <ion-item>
+    <ion-label>Seleccione la facultad</ion-label>
+    <ion-select [(ngModel)]="idfacultad" name="idfacultad" (ionChange)='listarProgramas()' interface="popover">
+      <ion-option *ngFor="let facultad of facultades" [value]="facultad.cod_facultad" >{{ facultad.facultad }}</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-card>
+
+<ion-card *ngIf="programas.length>0">
+  <ion-item>
+    <ion-label>Seleccione el programa</ion-label>
+    <ion-select [(ngModel)]="idprograma" name="idprograma" (ionChange)='verRutasPrograma()' interface="popover">
+      <ion-option *ngFor="let programa of programas" [value]="programa.cod_uniprograma">{{ programa.programa }}</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-card>
+
+<ion-card *ngIf="rutasPrograma" >
+    <ion-slides pager>
+      <ion-slide *ngFor="let ruta of rutasPrograma">
+          <ion-toolbar class="toolbar-rutas">
+              <span id="slide-title" (click)="verAsignaturas(ruta.cod_ruta,idprograma)" >{{ruta.nombre_ruta}}</span>
+          </ion-toolbar>
+          <p class="slide-rutas" >
+            <span class="slide-creditos">Créditos: {{ruta.cred_ruta}}</span><br  />
+            {{ruta.descripcion_ruta}}
+          </p>
+      </ion-slide>
+    </ion-slides>
+</ion-card>
+
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar class="header-un" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Equivalencias</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-item>
+      <ion-label>Seleccione el programa de origen</ion-label>
+      <ion-select [(ngModel)]="idprograma1" name="idprograma1"  (ionChange)='listarProgramasDestino()' >
+        <ion-option *ngFor="let prog1 of programasOrigen" [value]="prog1.cod_uniprograma">{{ prog1.nombre }}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+  <ion-card *ngIf="programasDestino.length>0">
+    <ion-item>
+      <ion-label>Seleccione el programa de destino</ion-label>
+      <ion-select [(ngModel)]="idprograma2" name="idprograma2" (ionChange)='listarEquivalencias()' >
+        <ion-option *ngFor="let prog2 of programasDestino" [value]="prog2.cod_uniprograma">{{ prog2.nombre }}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+  <ion-grid *ngIf="equivalencias.length>0" no-padding>
+      <ion-row *ngFor="let equivalencia of equivalencias" >
+          <ion-col>
+              <div class="asignatura">
+                <h3 class="card-equ-header">
+                     Asignatura origen
+                </h3>
+                <h4 id="card-equ-title">{{ equivalencia.nomasigo }}</h4>
+                    <span class="card-equ-contenido">Codigo: {{ equivalencia.codasigo }}</span>
+                    <span class="card-equ-contenido">Creditos: {{ equivalencia.credasigo }}</span>
+              </div>
+          </ion-col>
+          <ion-col>
+            <div class="asignatura">
+              <h3 class="card-equ-header">
+                    Asignatura destino
+              </h3>
+              <h4 id="card-equ-title">{{ equivalencia.nomasigd }}</h4>
+              <span class="card-equ-contenido">Codigo: {{ equivalencia.codasigd }}</span>
+              <span class="card-equ-contenido">Creditos: {{ equivalencia.credasigd }}</span>
+            </div>
+          </ion-col>
+      </ion-row>
+      <br />
+  </ion-grid>
+</ion-content>

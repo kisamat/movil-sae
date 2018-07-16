@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar class="header-un" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{programa_actual}} </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h6>Ruta: {{nombre_ruta}}</h6>
+  <div *ngIf="asignaturas.length>0">
+    <ion-card *ngFor="let asignatura of asignaturas" >
+      <ion-card-header>
+            {{ asignatura.nombre_asignatura }}
+      </ion-card-header>
+      <ion-card-content>
+        <p class="slide-creditos">Código: {{asignatura.cod_asignatura}}</p>
+        <p class="slide-creditos">Créditos: {{ asignatura.creditos}}</p>
+        <p class="slide-creditos" *ngIf="asignatura.cod_componente">Componente: {{ asignatura.cod_componente }}</p>
+        <p class="slide-creditos" *ngIf="!asignatura.cod_componente">Componente: L</p>
+        <div class="prerrequisitos">
+          <p class="slide-creditos">Prerrequisitos:</p>
+          <p *ngIf="asignatura.prerrequisito=='' && asignatura.prerrequisito_cred==''">
+            La asignatura no tiene prerrequisitos en este plan de estudios.
+          </p>
+          <span *ngFor="let prerrequisito of asignatura.prerrequisito">
+            {{ prerrequisito.cod_prerrequisito }} - {{ prerrequisito.nombre_asignatura }} <br />
+          </span>
+          <span *ngFor="let prerrequisito_cred of asignatura.prerrequisito_cred">
+            Haber aprobado {{ prerrequisito_cred.prerrequisito_creditos }} créditos del(los) componente(s): {{ prerrequisito_cred.prerrequisito_componente }} <br />
+          </span>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+</ion-content>

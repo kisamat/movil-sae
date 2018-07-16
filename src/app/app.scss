@@ -1,0 +1,131 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+@font-face {
+  font-family: 'AncizarSans-Regular';
+  src: url('../assets/fonts/AncizarSans-Regular_02042016.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'AncizarSans-Bold';
+  src: url('../assets/fonts/AncizarSans-Bold_02042016.otf') format('otf');
+}
+@font-face {
+  font-family: 'AncizarSans-Italic';
+  src: url('../assets/fonts/AncizarSans-Italic_02042016.otf') format('otf');
+}
+@font-face {
+  font-family: 'AncizarSerif-Regular';
+  src: url('../assets/fonts/AncizarSerif-Regular_02042016.otf') format('otf');
+}
+@font-face {
+  font-family: 'AncizarSerif-Regular';
+  src: url('../assets/fonts/AncizarSerif-Regular_02042016.otf') format('otf');
+}
+@font-face {
+  font-family: 'AncizarSerif-Bold';
+  src: url('../assets/fonts/AncizarSerif-Bold_02042016.otf') format('otf');
+}
+@font-face {
+  font-family: 'AncizarSerif-Italic';
+  src: url('../assets/fonts/AncizarSerif-Italic_02042016.otf') format('otf');
+}
+
+.slide-rutas {
+    padding-bottom: 4rem;
+    text-align: justify;
+    padding: 1rem;
+    padding-bottom: 4rem;
+}
+#slide-title{
+  color:#488aff;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+}
+.slide-creditos {
+    font-weight: 700;
+    line-height: 3rem;
+}
+p.slide-creditos {
+    font-weight: 500;
+    line-height: 2rem;
+    text-align: left;
+}
+.alert-md .alert-wrapper {
+    max-width: 90%;
+}
+.alert-md .alert-title {
+    font-size: 20px;
+}
+.asignatura{
+  padding-bottom: 15px;
+}
+.card-equ-header{
+   background-color: #4682B4;
+   color: #ffffff;
+   font-weight: bold;
+   padding:9px;
+   font-size: 1.6rem;
+
+}
+
+#card-equ-title{
+  font-size: 1.5rem;
+  font-family:sans-serif;
+  font-weight: bold;
+}
+
+.card-equ-contenido{
+  padding-top: 0.8rem;
+  padding-left: 1.5rem;
+  font-size: 1.6rem;
+  display: block;
+}
+.header-un .toolbar-background{
+  background-image: url('../assets/img/unheader.png');
+  background-repeat: no-repeat;
+  margin-right: 200px;
+  background-position: right 20px top;
+  background-color: #666666;
+}
+.header-un.ion-title{
+  color: #ffffff;
+}
+.foot-un{
+  font-family: AncizarSans-Italic;;
+  font-weight: bold;
+  text-align: center;
+  color: #000000;
+  font-size: 1.4rem !important;
+  font-style: oblique;
+}
+.un-content {
+    height: 95%;
+}
+.un-footer{
+  background-color: #F8F8F8;
+  padding: 6px 0;
+  text-align: center;
+}
+.has-arrow.arrow-top{
+  font-size:1.35rem;
+  line-height:2.05rem;
+}
+.menu-un .item-md{
+  font-size: 1.4rem !important;
+}

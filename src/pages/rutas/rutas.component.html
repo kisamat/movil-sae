@@ -8,11 +8,20 @@
 </ion-header>
 
 <ion-content padding>
-<button ion-button clear icon-start small duration="9000" [tooltip]="toolTipText" positionV="bottom" arrow>
-  <ion-icon ios="ios-help-circle" md="md-help-circle"></ion-icon>
-  Rutas curriculares
+<div class="alert-info" text-wrap style="white-space: pre-line">
+    <div *ngIf="this.toolTipText.length <= limit">{{this.toolTipText}}</div>
+    <div *ngIf="truncating && this.toolTipText.length > limit">
+      {{this.toolTipText| truncate: this.limit: '.'}}
+      <a  class="hand-pointer"  (click)="truncating = false">leer más</a>
+    </div>
+    <div *ngIf="!truncating && this.toolTipText.length > limit">
+      {{this.toolTipText}}
+      <a class="hand-pointer" (click)="truncating = true">leer menos</a>
+    </div>
+  
+</div>
 
-</button>
+
 <ion-card>
   <ion-item>
     <ion-label>Seleccione la sede</ion-label>
@@ -40,7 +49,7 @@
   </ion-item>
 </ion-card>
 
-<ion-card *ngIf="rutasPrograma" >
+<ion-card *ngIf="rutasPrograma?.length>0 else nohay" >
     <ion-slides pager>
       <ion-slide *ngFor="let ruta of rutasPrograma">
           <ion-toolbar class="toolbar-rutas">
@@ -53,5 +62,12 @@
       </ion-slide>
     </ion-slides>
 </ion-card>
+<ng-template #nohay>
+    <div class="alert-danger" text-wrap style="white-space: pre-line" *ngIf="programas.length>0"   >
+        <p>
+            Este programa no cuenta con rutas propuestas por el programa curricular.
+        </p>  
+    </div>  
+</ng-template>
 
 </ion-content>

@@ -16,6 +16,11 @@ export class LoginComponent {
   password:string='';
   error:number=0;
   constructor(public nav:NavController,  public alertCtrl:AlertController,public loadingCtrl:LoadingController,private _authenticationService:AuthenticationService,private iab: InAppBrowser) {
+    //console.log(localStorage.getItem('currentUser'));
+    //console.log(localStorage.getItem('currentUser'));
+    if (localStorage.getItem('currentUser') != null) {
+      this.nav.setRoot(HomeComponent);
+    }
   }
 
   ngOnInit() {

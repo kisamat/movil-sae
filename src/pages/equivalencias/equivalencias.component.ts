@@ -15,6 +15,9 @@ export class EquivalenciasComponent implements OnInit {
   idprograma1:number;
   idprograma2:number;
   loading:boolean=true;
+  toolTipText:string="La fuente de las equivalencia publicadas en el aplicativo son las resoluciones de doble titulación aprobadas por los Consejos de Sede del 2009 al 2015. Esta información será actualizada periodicamente.";
+  limit: number = 250;
+  truncating = true;
 
   constructor(private _programas:ProgramasService,public loadingCtrl:LoadingController) {
       this.listarProgramas();

@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { TooltipsModule } from 'ionic-tooltips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {provideAuth} from 'angular2-jwt';
 import { MyApp } from './app.component';
 
 import { HomeComponent } from '../pages/home/home.component';
@@ -24,6 +23,9 @@ import { ProgramasService } from './services/programas.service';
 import { RutasService } from './services/rutas.service';
 import {AsignaturasService} from './services/asignaturas.service';
 import {AfinidadesService} from './services/afinidades.service';
+import { TruncatePipe } from '../pipes/truncate.pipe';
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import {AfinidadesService} from './services/afinidades.service';
     RutasComponent,
     AsignaturasComponent,
     EquivalenciasComponent,
-    AfinidadesComponent
+    AfinidadesComponent,
+    TruncatePipe
+
   ],
   imports: [
     BrowserModule,

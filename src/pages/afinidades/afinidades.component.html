@@ -7,10 +7,18 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="un-content" padding>
-  <button ion-button clear icon-start small duration="9000" [tooltip]="toolTipText" positionV="bottom" arrow>
-    <ion-icon ios="ios-help-circle" md="md-help-circle"></ion-icon>
-     Análisis de Afinidades
-  </button>
+  <div class="alert-info" text-wrap style="white-space: pre-line">
+      <div *ngIf="this.toolTipText.length <= limit">{{this.toolTipText}}</div>
+      <div *ngIf="truncating && this.toolTipText.length > limit">
+        {{this.toolTipText| truncate: this.limit: '.'}}
+        <a  class="hand-pointer"  (click)="truncating = false">leer más</a>
+      </div>
+      <div *ngIf="!truncating && this.toolTipText.length > limit">
+        {{this.toolTipText}}
+        <a class="hand-pointer" (click)="truncating = true">leer menos</a>
+      </div>
+    
+  </div>
   <ion-card>
     <ion-item>
       <ion-label>Seleccione la sede</ion-label>
@@ -38,7 +46,7 @@
     </ion-item>
   </ion-card>
 
-  <ion-card *ngIf="afinidades.length>0">
+  <ion-card *ngIf="afinidades.length>0 else nohay">
     <ion-card-header class="card-equ-header">
           Afinidades
     </ion-card-header>
@@ -61,5 +69,12 @@
             </ion-row>
         </ion-grid>
     </ion-card-content>
+
   </ion-card>
+  <ng-template #nohay>
+      <div class="alert-danger" text-wrap style="white-space: pre-line" *ngIf="programas.length>0"  >
+          <p>De acuerdo con el análisis realizado, el programa no cuenta con programas afines para doble titulación. Sin embargo, los estudiantes pueden realizar solicitudes de doble titulación, mientras cumplan las condiciones establecidas en <b>los artículos 47 al 50 del Acuerdo 008 del 2008 del CSU y el Acuerdo 155 de 2014 del CSU</b>. </p>  
+      </div>  
+  </ng-template>
+
 </ion-content>

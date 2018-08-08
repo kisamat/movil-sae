@@ -9,8 +9,8 @@ import 'rxjs/add/operator/map';
 export class RutasService {
   rutas:any=[];
 
-  urlBusqueda:string='http://www.pregrado.unal.edu.co/pruebas/rutas/rutas/rutas/rutas';
-  //urlBusqueda:string=`${URL_API}rutas/rutas/rutas`;
+  //urlBusqueda:string='http://www.pregrado.unal.edu.co/pruebas/rutas/rutas/rutas/rutas';
+  urlBusqueda:string=`${URL_API}rutas/rutas/rutas`;
 
 
   constructor(private http:Http) { }

@@ -8,6 +8,18 @@
 </ion-header>
 
 <ion-content padding>
+  <div class="alert-info" text-wrap style="white-space: pre-line">
+      <div *ngIf="this.toolTipText.length <= limit">{{this.toolTipText}}</div>
+      <div *ngIf="truncating && this.toolTipText.length > limit">
+        {{this.toolTipText| truncate: this.limit: '.'}}
+        <a  class="hand-pointer"  (click)="truncating = false">leer más</a>
+      </div>
+      <div *ngIf="!truncating && this.toolTipText.length > limit">
+        {{this.toolTipText}}
+        <a class="hand-pointer" (click)="truncating = true">leer menos</a>
+      </div>
+    
+  </div>
   <ion-card>
     <ion-item>
       <ion-label>Seleccione el programa de origen</ion-label>

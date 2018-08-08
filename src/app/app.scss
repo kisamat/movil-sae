@@ -101,7 +101,7 @@ p.slide-creditos {
   background-repeat: no-repeat;
   margin-right: 200px;
   background-position: right 20px top;
-  background-color: #666666;
+  background-color: #b0b0b0b0;
 }
 .header-un.ion-title{
   color: #ffffff;
@@ -128,4 +128,34 @@ p.slide-creditos {
 }
 .menu-un .item-md{
   font-size: 1.4rem !important;
+}
+.alert-info {
+  background-image: -webkit-linear-gradient(top,#d9edf7 0,#b9def0 100%);
+  background-image: linear-gradient(to bottom,#d9edf7 0,#b9def0 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9edf7', endColorstr='#ffb9def0', GradientType=0);
+  border-color: #9acfea;
+  padding: 6px;
+  margin-bottom: 0px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #31708f;
+  font-size: 0.96em;
+}
+.hand-pointer{
+  cursor: pointer;
+}
+.alert-danger {
+  background-image: -webkit-linear-gradient(top,#f2dede 0,#e7c3c3 100%);
+  background-image: linear-gradient(to bottom,#f2dede 0,#e7c3c3 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3', GradientType=0);
+border-color: #dca7a7;
+  border-color: #9acfea;
+  padding: 6px;
+  margin-bottom: 0px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #a94442;
+  font-size: 0.96em;
 }

@@ -4,6 +4,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import {RutasService} from '../../app/services/rutas.service';
 import {ProgramasService} from '../../app/services/programas.service';
 import {AsignaturasComponent} from '../asignaturas/asignaturas.component';
+import { TruncatePipe } from '../../pipes/truncate.pipe';
 
 
 @Component({
@@ -21,7 +22,9 @@ export class RutasComponent implements OnInit {
   rutasPrograma:any[];
   loading:boolean=true;
   programa_actual:String="";
-  toolTipText:string="Las Rutas Curriculares Son los trayectos que el estudiante encuentra dentro del plan de estudios que visibilizan las oportunidades académicas que le permitirán la consecución de sus intereses y necesidades de formación.\n\nLas rutas contienen la información de asignaturas optativas y de libre elección, que están articuladas con los objetivos del programa, campos de acción profesional y perfiles del egresado, facilitando que el estudiante oriente la elección de asignaturas con miras al ejercicio futuro de su profesión."
+  toolTipText:string="Las Rutas Curriculares Son los trayectos que el estudiante encuentra dentro del plan de estudios que visibilizan las oportunidades académicas que le permitirán la consecución de sus intereses y necesidades de formación. Las rutas contienen la información de asignaturas optativas y de libre elección, que están articuladas con los objetivos del programa, campos de acción profesional y perfiles del egresado, facilitando que el estudiante oriente la elección de asignaturas con miras al ejercicio futuro de su profesión.";
+  limit: number = 40;
+  truncating = true;
 
 
   constructor(private _rutas:RutasService, private _programas:ProgramasService,private navCtrl: NavController,public loadingCtrl:LoadingController) {

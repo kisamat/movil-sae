@@ -50,7 +50,7 @@
 </ion-card>
 
 <ion-card *ngIf="rutasPrograma?.length>0 else nohay" >
-    <ion-slides pager>
+    <ion-slides pager class="div-ruta">
       <ion-slide *ngFor="let ruta of rutasPrograma">
           <ion-toolbar class="toolbar-rutas">
               <span id="slide-title" (click)="verAsignaturas(ruta.cod_ruta,idprograma)" >{{ruta.nombre_ruta}}</span>

@@ -74,13 +74,16 @@ p.slide-creditos {
 }
 .asignatura{
   padding-bottom: 15px;
+  background-color: #ffffff;
+  padding-left: 5px;
+  height: 100%;
 }
 .card-equ-header{
    background-color: #4682B4;
    color: #ffffff;
    font-weight: bold;
    padding:9px;
-   font-size: 1.6rem;
+   font-size: 1.5rem;
 
 }
 
@@ -100,8 +103,9 @@ p.slide-creditos {
   background-image: url('../assets/img/unheader.png');
   background-repeat: no-repeat;
   margin-right: 200px;
-  background-position: right 20px top;
-  background-color: #b0b0b0b0;
+  background-position: right -10px top;
+  background-color: #b0b0b0;
+  background-size: 120px;
 }
 .header-un.ion-title{
   color: #ffffff;

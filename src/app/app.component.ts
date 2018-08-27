@@ -54,7 +54,7 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
   escuela(){
-    this.iab.create('https://campus.virtual.unal.edu.co/','_system');
+    this.iab.create('https://campus.virtual.unal.edu.co/mod/data/view.php?d=314&rid=1417','_system');
   }
   canalYoutube(){
     this.iab.create('https://www.youtube.com/channel/UCbMueewPIQ5U7jrlV_L4WgA/playlists','_self');

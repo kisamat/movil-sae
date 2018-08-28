@@ -22,7 +22,7 @@
         <div class="prerrequisitos">
           <p class="slide-creditos">Prerrequisitos:</p>
           <p *ngIf="asignatura.prerrequisito=='' && asignatura.prerrequisito_cred==''">
-            La asignatura no tiene prerrequisitos en este plan de estudios.
+            De acuerdo a la información suministrada por el SIA, esta asignatura no registra otras asignaturas como prerrequisitos en este plan de estudios. Sin embargo, lo invitamos a consultar en los planes que ofertan la asignatura otro tipo de prerrequisitos. Puede consultarlos <a class="hand-pointer" target="_blank" href="http://www.pregrado.unal.edu.co/index.php/programas">aquí</a>
           </p>
           <span *ngFor="let prerrequisito of asignatura.prerrequisito">
             {{ prerrequisito.cod_prerrequisito }} - {{ prerrequisito.nombre_asignatura }} <br />

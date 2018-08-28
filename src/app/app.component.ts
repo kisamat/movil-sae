@@ -45,7 +45,26 @@ export class MyApp {
       this.splashScreen.hide();
       
     });
+
+    this.platform.registerBackButtonAction(() =>{
+        //let nav = this.nav.getActive().id;
+        let activeView = this.nav.getActive();
+
+        if(activeView.name !="HomeComponent"){
+
+          this.nav.setRoot(HomeComponent)
+
+        }/*else if(activeView.name=="HomeComponent"){
+
+          this.platform.exitApp();
+        }*/
+
+    });
+
+
   }
+
+
 
   openPage(page) {
     // Reset the content nav to have just this page
